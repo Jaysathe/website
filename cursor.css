@@ -1,0 +1,15 @@
+.custom-cursor {
+position: fixed;
+top: 0;
+left: 0;
+width: 30px;
+height: 30px;
+background: url("images/cursor.png") center/contain no-repeat;
+pointer-events: none;
+z-index: 999999;
+transform: translate(-50%, -50%);
+}
+
+* {
+cursor: none !important;
+}

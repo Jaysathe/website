@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Penetration Testing | BugxSolutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #050816;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #00FF88, #00D4FF, #7B61FF);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 6s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00FF88, #00D4FF);
+            color: #050816;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(0, 255, 136, 0.4);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+        
+        .noise::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+        }
+        
+        .spaced-heading {
+            letter-spacing: 0.15em;
+        }
+        
+        .divider {
+            width: 100%;
+            height: 1px;
+            margin: 3rem 0;
+            background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.4), transparent);
+        }
+    </style>
+</head>
+<body class="noise">
+    <!-- Background Gradients -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00FF88]/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#00D4FF]/15 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-[#7B61FF]/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Navigation -->
+        <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <span class="text-2xl font-bold text-gradient">BugX Solutions</span>
+                </a>
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="index.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00FF88]/20">Home</a>
+                    <a href="about.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00D4FF]/20">About</a>
+                    <a href="services.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7B61FF]/20">Services</a>
+                    <a href="contact.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00FF88]/20">Contact</a>
+                </div>
+                <a href="booking.html" class="hidden md:block btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">
+                    Get Started
+                </a>
+                <button class="md:hidden text-white/70">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-[50vh] flex items-center justify-center pt-32 pb-12 relative">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+            <a href="services.html" class="inline-flex items-center gap-2 text-[#00D4FF] text-sm mb-8 hover:gap-3 transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to Services
+            </a>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight spaced-heading">
+                Network Penetration Testing
+            </h1>
+            <p class="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+                Comprehensive internal and external network penetration testing designed to identify vulnerabilities, validate security weaknesses, and simulate real-world cyberattacks against modern network infrastructure.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-10 pb-32">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="space-y-16">
+                <div>
+<h2>Overview</h2>
+
+<p>
+Modern organizations depend heavily on secure network infrastructure to protect sensitive data, business operations, and critical systems. However, both internal and external network environments are constantly targeted by cyber attackers looking for vulnerabilities they can exploit.
+</p>
+
+<p>
+External-facing systems such as servers, firewalls, VPNs, cloud services, and exposed applications are often the first target for attackers. At the same time, internal threats including compromised accounts, insider attacks, malware infections, and lateral movement within the network can cause equally severe damage once an attacker gains initial access.
+</p>
+
+<p>
+A strong security posture requires testing both external and internal infrastructure to understand how attackers could compromise systems, escalate privileges, move across the network, and access sensitive assets.
+</p>
+
+<p>
+<b>BugxSolutions</b> provides detailed manual network penetration testing to identify, validate, and safely exploit vulnerabilities across your internal and external infrastructure. Our testing goes beyond automated vulnerability scanning to provide a real-world understanding of your organization's security exposure and attack surface.
+</p>
+</div>
+<div class="divider"></div>
+<div>
+<h2>What is Network Penetration Testing?</h2>
+
+<p>
+Network penetration testing is a security assessment that simulates real-world cyberattacks against an organization's network infrastructure to identify exploitable vulnerabilities before malicious attackers can abuse them.
+</p>
+
+<p>
+The assessment evaluates both:
+</p>
+
+<ul>
+<li>External network security</li>
+<li>Internal network security</li>
+</ul>
+
+<p>
+Our testing helps determine whether attackers could:
+</p>
+
+<ul>
+<li>Exploit exposed systems</li>
+<li>Bypass security controls</li>
+<li>Escalate privileges</li>
+<li>Move laterally across the network</li>
+<li>Access sensitive systems and data</li>
+<li>Maintain persistence within the environment</li>
+<li>Exfiltrate sensitive information</li>
+</ul>
+
+<p>
+Unlike automated scanners, manual network penetration testing validates vulnerabilities through controlled exploitation to demonstrate actual business risk and attack impact.
+</p>
+</div>
+<div class="divider"></div>
+<div>
+<h2>Areas Covered During Network Penetration Testing</h2>
+
+<ul>
+<li>Firewalls and Security Devices</li>
+<li>Servers and Operating Systems</li>
+<li>VPN Gateways and Remote Access Services</li>
+<li>Cloud Infrastructure and Exposed Assets</li>
+<li>Network Segmentation and Access Controls</li>
+<li>Active Directory and Internal Services</li>
+<li>Open Ports and Exposed Services</li>
+<li>Privilege Escalation Risks</li>
+<li>Lateral Movement Opportunities</li>
+<li>Data Exposure and Exfiltration Risks</li>
+</ul>
+
+<p>
+We also identify security misconfigurations, outdated services, weak authentication mechanisms, and insecure trust relationships across the network environment.
+</p>
+</div>
+<div class="divider"></div>
+<div>
+<h2>How We Perform Network Penetration Testing</h2>
+
+<h3>1. Scoping and Planning</h3>
+
+<p>
+We work closely with your team to define:
+</p>
+
+<ul>
+<li>Testing scope</li>
+<li>Target systems and IP ranges</li>
+<li>Internal and external assets</li>
+<li>Business objectives</li>
+<li>Compliance requirements</li>
+<li>Rules of engagement</li>
+</ul>
+
+<p>
+This ensures the assessment aligns with your organization's infrastructure and security goals.
+</p>
+
+<div class="divider"></div>
+
+<h3>2. Reconnaissance and Discovery</h3>
+
+<p>
+Our analysts gather information about the target environment to map the attack surface.
+</p>
+
+<p>
+This includes identifying:
+</p>
+
+<ul>
+<li>Open ports and services</li>
+<li>Active systems and devices</li>
+<li>DNS and domain information</li>
+<li>Network architecture</li>
+<li>Publicly exposed assets</li>
+<li>Internal network services</li>
+</ul>
+
+<p>
+We use both passive and active reconnaissance techniques to understand how attackers could target the environment.
+</p>
+
+<div class="divider"></div>
+
+<h3>3. Vulnerability Analysis</h3>
+
+<p>
+We perform in-depth vulnerability analysis across the network infrastructure to identify:
+</p>
+
+<ul>
+<li>Misconfigurations</li>
+<li>Outdated software and services</li>
+<li>Weak authentication controls</li>
+<li>Exposed administrative interfaces</li>
+<li>Insecure protocols</li>
+<li>Known vulnerabilities and CVEs</li>
+</ul>
+
+<p>
+All findings are manually validated to reduce false positives and confirm exploitability.
+</p>
+
+<div class="divider"></div>
+
+<h3>4. Exploitation</h3>
+
+<p>
+Our security experts safely exploit confirmed vulnerabilities to simulate real-world attacks and demonstrate the potential impact of a successful compromise.
+</p>
+
+<p>
+This may include:
+</p>
+
+<ul>
+<li>Unauthorized system access</li>
+<li>Credential attacks</li>
+<li>Service exploitation</li>
+<li>Firewall bypass attempts</li>
+<li>Remote code execution</li>
+<li>Access to sensitive systems and data</li>
+</ul>
+
+<p>
+Only controlled and approved exploitation activities are performed during testing.
+</p>
+
+<div class="divider"></div>
+
+<h3>5. Privilege Escalation and Lateral Movement</h3>
+
+<p>
+We assess whether attackers could escalate privileges or move laterally within the environment after gaining initial access.
+</p>
+
+<p>
+This includes testing for:
+</p>
+
+<ul>
+<li>Weak access controls</li>
+<li>Insecure trust relationships</li>
+<li>Active Directory weaknesses</li>
+<li>Shared credential abuse</li>
+<li>Segmentation bypasses</li>
+<li>Internal privilege escalation paths</li>
+</ul>
+
+<p>
+The goal is to understand how far an attacker could progress within the network.
+</p>
+
+<div class="divider"></div>
+
+<h3>6. Persistence and Data Exposure Testing</h3>
+
+<p>
+We evaluate whether attackers could maintain access within the environment or extract sensitive information without detection.
+</p>
+
+<p>
+This includes testing for:
+</p>
+
+<ul>
+<li>Persistence mechanisms</li>
+<li>Sensitive data exposure</li>
+<li>Weak monitoring controls</li>
+<li>Logging weaknesses</li>
+<li>Data exfiltration opportunities</li>
+</ul>
+
+<p>
+This phase helps organizations understand the real-world impact of a potential compromise.
+</p>
+
+<div class="divider"></div>
+
+<h3>7. Reporting and Remediation Guidance</h3>
+
+<p>
+After testing is completed, BugxSolutions provides a detailed report containing:
+</p>
+
+<ul>
+<li>Executive Summary</li>
+<li>Technical Findings</li>
+<li>Proof-of-Concept Evidence</li>
+<li>Risk Severity Ratings</li>
+<li>Attack Path Analysis</li>
+<li>Step-by-Step Remediation Recommendations</li>
+</ul>
+
+<p>
+Our team also supports your organization during remediation and helps strengthen overall network security.
+</p>
+</div>
+<div class="divider"></div>
+<div>
+<h2>Benefits of Network Penetration Testing</h2>
+
+<ul>
+<li>Identify Internal and External Network Vulnerabilities</li>
+<li>Detect Misconfigurations and Weak Security Controls</li>
+<li>Validate Firewall and Segmentation Security</li>
+<li>Reduce Risk of Unauthorized Access</li>
+<li>Identify Privilege Escalation Paths</li>
+<li>Strengthen Internal Infrastructure Security</li>
+<li>Improve Compliance Readiness</li>
+<li>Receive Clear Remediation Guidance</li>
+<li>Increase Overall Security Visibility</li>
+<li>Improve Organizational Cyber Resilience</li>
+</ul>
+</div>
+
+                <!-- CTA -->
+                <div class="text-center pt-12">
+                    <a href="booking.html" class="inline-block btn-primary px-10 py-4 rounded-full text-lg font-semibold">
+                        Book Your Network Pen Test Today
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F172A] border-t border-white/5 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-1 bg-white rounded-lg shadow-sm"><img src="images/logo.png" class="h-10" alt="BugX Solutions"></div>
+                        <span class="text-xl font-bold">BugX</span>
+                    </div>
+                    <p class="text-white/60 text-sm mb-6 leading-relaxed">Advanced cybersecurity solutions to protect your business.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/bugx_solution" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.173.053 1.81.238 2.227.416.393.163.676.376.845.59.26.174.499.446.667.845.178.417.364 1.054.417 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.053 1.173-.239 1.81-.417 2.227a1.904 1.904 0 0 1-.59.845 1.904 1.904 0 0 1-.845.59c-.417.178-1.054.364-2.227.417-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.173-.053-1.81-.239-2.227-.417a1.904 1.904 0 0 1-.845-.59 1.904 1.904 0 0 1-.59-.845c-.178-.417-.364-1.054-.417-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.053-1.173.239-1.81.417-2.227.163-.393.376-.676.59-.845.214-.174.446-.43.845-.59.417-.178 1.054-.364 2.227-.417 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.634.01-4.9.073-1.215.055-1.77.242-2.21.415a3.834 3.834 0 0 0-1.4 1.4c-.173.44-.36.995-.415 2.21-.063 1.266-.073 1.641-.073 4.9s.01 3.634.073 4.9c.055 1.215.242 1.77.415 2.21a3.834 3.834 0 0 0 1.4 1.4c.44.173.995.36 2.21.415 1.266.063 1.641.073 4.9.073s3.634-.01 4.9-.073c1.215-.055 1.77-.242 2.21-.415a3.834 3.834 0 0 0 1.4-1.4c.173-.44.36-.995.415-2.21.063-1.266.073-1.641.073-4.9s-.01-3.634-.073-4.9c-.055-1.215-.242-1.77-.415-2.21a3.834 3.834 0 0 0-1.4-1.4c-.44-.173-.995-.36-2.21-.415-1.266-.063-1.641-.073-4.9-.073zm0 5.838a3.162 3.162 0 1 1 0 6.324 3.162 3.162 0 0 1 0-6.324zm0 1.763a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zm6.406-6.126a.87.87 0 1 0 0 1.74.87.87 0 0 0 0-1.74z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/thebugxsolution" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.46 8.502 11.25H17.52l-5.577-7.04L4.92 21.75H1.61l7.711-9.073L1.376 2.25h3.512l6.09 7.191zm-2.386 2.844L5.363 3.75H1.467 10.25l1.287z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bug-xsolution-1a8732404" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554V14.88c0-1.337-.026-3.058-1.862-3.058-1.863 0-2.152 1.454-2.152 2.962v5.668H9.322V9h3.414v1.561h.048c.476-.9 1.637-1.853 3.369-1.853 3.601 0 4.268 2.37 4.268 5.456v6.288zM5.337 7.433a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm-1.78 13.019h3.554V9H3.557v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.207 24 24 23.227 24 22.271V1.729C24 .774 23.207 0 22.225 0z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white/40 uppercase tracking-wider mb-5">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white/60 hover:text-white text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-white/60 hover:text-white text-sm transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-white/60 hover:text-white text-sm transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="text-white/60 hover:text-white text-sm transition-colors">Contact</a></li>
+                        <li><a href="booking.html" class="text-white/60 hover:text-white text-sm transition-colors">Booking</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white/40 uppercase tracking-wider mb-5">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy-policy.html" class="text-white/60 hover:text-white text-sm transition-colors">Privacy policy</a></li>
+                        <li><a href="terms.html" class="text-white/60 hover:text-white text-sm transition-colors">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white/40 uppercase tracking-wider mb-5">Other Pages</h4>
+                    <ul class="space-y-3">
+                        <li><a href="web-app.html" class="text-white/60 hover:text-white text-sm transition-colors">Web Application</a></li>
+                        <li><a href="Network Penetration.html" class="text-white/60 hover:text-white text-sm transition-colors">Network</a></li>
+                        <li><a href="cloud-testing.html" class="text-white/60 hover:text-white text-sm transition-colors">Cloud</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">All rights reserved for @BugX</p>
+                <p class="text-white/30 text-xs">Designed by BugX Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        window.onload = function() {
+            gsap.from('nav', { y: -50, opacity: 0, duration: 0.8, ease: 'power2.out' });
+            gsap.from('section', { opacity: 0, y: 30, duration: 1, delay: 0.2, stagger: 0.1, ease: 'power2.out' });
+        };
+    </script>
+</body>
+</html>

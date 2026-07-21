@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | BugX Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: #050816;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #00FF88, #00D4FF, #7B61FF);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 6s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .noise::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00FF88, #00D4FF);
+            color: #050816;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(0, 255, 136, 0.4);
+        }
+        
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+        }
+        
+        .spaced-heading {
+            letter-spacing: 0.15em;
+        }
+    </style>
+</head>
+<body class="noise">
+    <!-- Background Gradients -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00FF88]/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#00D4FF]/15 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-[#7B61FF]/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <span class="text-2xl font-bold text-gradient">BugX Solutions</span>
+                </a>
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="index.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00FF88]/20">Home</a>
+                    <a href="about.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00D4FF]/20">About</a>
+                    <a href="services.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#7B61FF]/20">Services</a>
+                    <a href="contact.html" class="glass px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/15 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-[#00FF88]/20">Contact</a>
+                </div>
+                <a href="booking.html" class="hidden md:block btn-primary px-6 py-2.5 rounded-full text-sm font-semibold">
+                    Get Started
+                </a>
+                <button class="md:hidden text-white/70">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-[30vh] flex items-center justify-center pt-32 pb-12 relative">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+            <p class="section-label mb-6">LEGAL</p>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight spaced-heading">
+                Terms of <span class="text-gradient">Service</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-10 pb-32">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="glass rounded-3xl p-8 md:p-12">
+                <p class="text-white/70 mb-8 leading-relaxed">
+                    Welcome to BugxSolution. By accessing or using our website (“Website”), you acknowledge that you have read, understood, and agreed to comply with these Terms of Service.
+                </p>
+                <p class="text-white/70 mb-10 leading-relaxed">
+                    If you do not agree with any part of these Terms, you should discontinue use of the Website immediately.
+                </p>
+
+                <div class="space-y-10">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Acceptance of Terms</h2>
+                        <p class="text-white/70 leading-relaxed">
+                            By using this Website, you confirm that you are legally capable of entering into a binding agreement under applicable Indian laws.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Permitted Use of the Website</h2>
+                        <p class="text-white/70 mb-4 leading-relaxed">
+                            Users may access and use the Website solely for lawful purposes. You agree not to:
+                        </p>
+                        <ul class="list-disc pl-6 text-white/70 space-y-2">
+                            <li>Use the Website for unlawful or unauthorized activities</li>
+                            <li>Attempt unauthorized access to systems or databases</li>
+                            <li>Spread malware, viruses, or malicious code</li>
+                            <li>Disrupt Website security or functionality</li>
+                            <li>Use bots or scripts to misuse the Website</li>
+                            <li>Send spam or promotional content</li>
+                            <li>Violate applicable laws or third-party rights</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Intellectual Property Rights</h2>
+                        <p class="text-white/70 mb-4 leading-relaxed">
+                            All Website content including logos, graphics, text, software, and designs are owned by or licensed to BugxSolution and protected under intellectual property laws.
+                        </p>
+                        <ul class="list-disc pl-6 text-white/70 space-y-2">
+                            <li>Do not copy or distribute Website content</li>
+                            <li>Do not use BugxSolution branding without permission</li>
+                            <li>Do not reverse engineer or misuse Website services</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Privacy and Data Protection</h2>
+                        <p class="text-white/70 leading-relaxed">
+                            We respect your privacy and protect user information in accordance with applicable Indian laws and industry standards.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Third-Party Links and Services</h2>
+                        <p class="text-white/70 leading-relaxed">
+                            The Website may contain links to third-party services. BugxSolution is not responsible for third-party content or practices.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Disclaimer of Warranties</h2>
+                        <p class="text-white/70 mb-4 leading-relaxed">
+                            The Website and all services are provided on an “as is” and “as available” basis without warranties of any kind.
+                        </p>
+                        <ul class="list-disc pl-6 text-white/70 space-y-2">
+                            <li>Website availability is not guaranteed</li>
+                            <li>Errors or vulnerabilities may not be corrected immediately</li>
+                            <li>Information may not always be fully accurate or current</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Limitation of Liability</h2>
+                        <p class="text-white/70 mb-4 leading-relaxed">
+                            BugxSolution shall not be liable for damages arising from:
+                        </p>
+                        <ul class="list-disc pl-6 text-white/70 space-y-2">
+                            <li>Use or inability to use the Website</li>
+                            <li>Unauthorized access to information</li>
+                            <li>Technical issues or interruptions</li>
+                            <li>Reliance on Website content</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Modifications to Terms</h2>
+                        <p class="text-white/70 leading-relaxed">
+                            BugxSolution reserves the right to update or modify these Terms at any time without prior notice.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Governing Law and Jurisdiction</h2>
+                        <p class="text-white/70 leading-relaxed">
+                            These Terms are governed by the laws of India. Any disputes shall be subject to the jurisdiction of competent courts in India.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-white">Contact Information</h2>
+                        <p class="text-white/70 leading-relaxed">
+                            For questions or legal inquiries regarding these Terms, users may contact BugxSolution through the contact information available on the Website.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F172A] border-t border-white/5 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-1 bg-white rounded-lg shadow-sm"><img src="images/logo.png" class="h-10" alt="BugX Solutions"></div>
+                        <span class="text-xl font-bold">BugX</span>
+                    </div>
+                    <p class="text-white/60 text-sm mb-6 leading-relaxed">Advanced cybersecurity solutions to protect your business.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/bugx_solution" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.173.053 1.81.238 2.227.416.393.163.676.376.845.59.26.174.499.446.667.845.178.417.364 1.054.417 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.053 1.173-.239 1.81-.417 2.227a1.904 1.904 0 0 1-.59.845 1.904 1.904 0 0 1-.845.59c-.417.178-1.054.364-2.227.417-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.173-.053-1.81-.239-2.227-.417a1.904 1.904 0 0 1-.845-.59 1.904 1.904 0 0 1-.59-.845c-.178-.417-.364-1.054-.417-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.053-1.173.239-1.81.417-2.227.163-.393.376-.676.59-.845.214-.174.446-.43.845-.59.417-.178 1.054-.364 2.227-.417 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.634.01-4.9.073-1.215.055-1.77.242-2.21.415a3.834 3.834 0 0 0-1.4 1.4c-.173.44-.36.995-.415 2.21-.063 1.266-.073 1.641-.073 4.9s.01 3.634.073 4.9c.055 1.215.242 1.77.415 2.21a3.834 3.834 0 0 0 1.4 1.4c.44.173.995.36 2.21.415 1.266.063 1.641.073 4.9.073s3.634-.01 4.9-.073c1.215-.055 1.77-.242 2.21-.415a3.834 3.834 0 0 0 1.4-1.4c.173-.44.36-.995.415-2.21.063-1.266.073-1.641.073-4.9s-.01-3.634-.073-4.9c-.055-1.215-.242-1.77-.415-2.21a3.834 3.834 0 0 0-1.4-1.4c-.44-.173-.995-.36-2.21-.415-1.266-.063-1.641-.073-4.9-.073zm0 5.838a3.162 3.162 0 1 1 0 6.324 3.162 3.162 0 0 1 0-6.324zm0 1.763a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zm6.406-6.126a.87.87 0 1 0 0 1.74.87.87 0 0 0 0-1.74z"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/thebugxsolution" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.244 2.25h3.308l-7.227 8.46 8.502 11.25H17.52l-5.577-7.04L4.92 21.75H1.61l7.711-9.073L1.376 2.25h3.512l6.09 7.191zm-2.386 2.844L5.363 3.75H1.467 10.25l1.287z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bug-xsolution-1a8732404" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:bg-white/10 hover:text-white transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554V14.88c0-1.337-.026-3.058-1.862-3.058-1.863 0-2.152 1.454-2.152 2.962v5.668H9.322V9h3.414v1.561h.048c.476-.9 1.637-1.853 3.369-1.853 3.601 0 4.268 2.37 4.268 5.456v6.288zM5.337 7.433a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm-1.78 13.019h3.554V9H3.557v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.207 24 24 23.227 24 22.271V1.729C24 .774 23.207 0 22.225 0z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white/40 uppercase tracking-wider mb-5">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white/60 hover:text-white text-sm transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-white/60 hover:text-white text-sm transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-white/60 hover:text-white text-sm transition-colors">Services</a></li>
+                        <li><a href="contact.html" class="text-white/60 hover:text-white text-sm transition-colors">Contact</a></li>
+                        <li><a href="booking.html" class="text-white/60 hover:text-white text-sm transition-colors">Booking</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white/40 uppercase tracking-wider mb-5">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy-policy.html" class="text-white/60 hover:text-white text-sm transition-colors">Privacy policy</a></li>
+                        <li><a href="terms.html" class="text-white/60 hover:text-white text-sm transition-colors">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-white/40 uppercase tracking-wider mb-5">Other Pages</h4>
+                    <ul class="space-y-3">
+                        <li><a href="web-app.html" class="text-white/60 hover:text-white text-sm transition-colors">Web Application</a></li>
+                        <li><a href="Network Penetration.html" class="text-white/60 hover:text-white text-sm transition-colors">Network</a></li>
+                        <li><a href="cloud-testing.html" class="text-white/60 hover:text-white text-sm transition-colors">Cloud</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm">All rights reserved for @BugX</p>
+                <p class="text-white/30 text-xs">Designed by BugX Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        window.onload = function() {
+            gsap.from('nav', { y: -50, opacity: 0, duration: 0.8, ease: 'power2.out' });
+            gsap.from('section', { opacity: 0, y: 30, duration: 1, delay: 0.2, stagger: 0.1, ease: 'power2.out' });
+        };
+    </script>
+</body>
+</html>
